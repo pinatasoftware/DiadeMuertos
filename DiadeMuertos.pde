@@ -1,31 +1,34 @@
-float period, amplitude;
+int textcounter;
 PImage calavera;
 PFont hackerfont;
 
 void setup() {
    fullScreen();
-   //size(500,500);
-    period = 500;
-    amplitude = 100;
-    calavera = loadImage("calavera.png");
-    hackerfont = createFont("C64_Pro_Mono-STYLE.ttf", 32);    
+  //size(1000,500);
+  textcounter = 0;
+  calavera = loadImage("calavera.png");
+  hackerfont = createFont("C64_Pro_Mono-STYLE.ttf", 32); 
+  background(0);
 }
  
 void draw() {
   //background(255);
  
-  float waveValue = amplitude * cos(TWO_PI * frameCount / period);
-  int backgroundValue = round(map(waveValue, -100,100,35,0));
-  background(backgroundValue);
-  
-  image(calavera, width/4, 0);
-  
-  textFont(hackerfont);
-  textAlign(CENTER, BOTTOM);
-  fill(94,255,4);
-  text("Demo de letras", width/2, height/2);
+  typewriteText("Bienvenido al dia de muertos de Pinata Softique", hackerfont, 20, color(49,255,50));
   
   
+  //image(calavera, width/4, 0);
 
-  
+}
+
+
+//it needs a global variable called textcounter initialized in 0
+void typewriteText(String text, PFont font, int size, color col){
+  if(textcounter < text.length()){
+    textcounter++;
+    fill(col);
+    textFont(font, size);
+    text(text.substring(0,textcounter),0,40,width,height);
+    println(textcounter); 
+  }
 }
