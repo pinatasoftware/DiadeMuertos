@@ -1,5 +1,5 @@
 int textcounter, stage;
-PImage catrina, calavera, pinatadog;
+PImage catrina, calavera, pinata8bit;
 PFont hackerfont;
 
 void setup() {
@@ -8,10 +8,11 @@ void setup() {
   stage = 1; //starts in first screen
   textcounter = 0;
   catrina = loadImage("catrina8bit.png");
-  pinatadog = loadImage("pinatadog.png");
+  pinata8bit = loadImage("pinata8bit.png");
   calavera = loadImage("calavera.png");
   hackerfont = createFont("C64_Pro_Mono-STYLE.ttf", 32); 
   background(0);
+  imageMode(CENTER);
 }
  
 void draw() {
@@ -19,7 +20,7 @@ void draw() {
   
   if(stage == 1){
     typewriteText("Bienvenido al dia de muertos de Pinata Software,\npresiona CUALQUIER TECLA para continuar...", hackerfont, 20, color(49,255,50));
-    image(catrina, 0, height/6);
+    image(catrina, width/2, height/2);
     
     if (keyPressed == true) {
       background(0);
@@ -31,8 +32,8 @@ void draw() {
   
   if(stage == 2){
     
-    typewriteText("Haz llegado a HOME SCREEN!", hackerfont, 20, color(49,255,50));
-    image(pinatadog, 0, height/6);
+    typewriteText("Sube tu foto con el hashtag #HACKCUU a twitter y observa lo que pasa \ncon tu fotografia!", hackerfont, 20, color(49,255,50));
+    image(pinata8bit,width/2, height/2);
 }
   
   //image(calavera, width/4, 0);
